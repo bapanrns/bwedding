@@ -19,6 +19,7 @@ import {
         localStorage.setItem("login", false);
         localStorage.clear();
         navigate("/");
+        window.location.reload(false);
     }
         return (
             <div>

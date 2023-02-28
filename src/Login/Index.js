@@ -14,6 +14,7 @@ const Index = (e) => {
         localStorage.setItem("login", true);
         navigate("/profile");
         e.modalHide();
+        window.location.reload(false);
     }
         
     return (

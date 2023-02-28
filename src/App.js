@@ -17,7 +17,6 @@ import HomeNavBars from './components/HomeNavBars';
 function App() {
     return (
       <>
-      <h1>{localStorage.getItem('login')}</h1>
         <BrowserRouter>
         {
           localStorage.getItem('login') === "true" ? <NavBars /> : <HomeNavBars />
