@@ -1,0 +1,77 @@
+.colmd6{
+    float: left;
+    padding: 5px;
+}
+.requiredfield{
+    color: red;
+}
+.uploadProfileImages{
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.imageModal .modal-dialog .modal-content .modal-header{
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-size: 11px;
+    background-color: #2bb6d0;
+}
+
+.imageModal .modal-dialog .modal-content .modal-header .modal-title{
+    font-size: 1rem;
+}
+
+.navbarClass{
+    padding-top: 1px !important;
+    padding-bottom: 1px !important;
+}
+.profileIcon{
+    padding: 0px !important;
+}
+
+.profileIcon img{ 
+    width: 60px;
+    border-radius: 50px;
+    height: 60px;
+}
+
+.loginButton{
+    margin: 0px auto;
+    width: 100%;
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+    background-color: #2bb6d0 !important;
+    border: 3px solid #2bb6d0 !important;
+}
+
+.forgotPassword{
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.registerButton{
+    width: 100%;
+    background-color: red !important;
+    padding-top: 9px !important;
+    padding-bottom: 9px !important;
+    border: 3px solid red !important;
+}
+
+.resendOTP{
+    text-align: center;
+    cursor: pointer;
+    font-size: 15px;
+    margin-bottom: 7px;
+}
+
+.formValidation .error{
+    color: red;
+}
+
+@media only screen and (max-width: 870px) and (min-width: 200px)  {
+    .colmd6{
+        float: none;
+    }
+}

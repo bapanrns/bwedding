@@ -1,0 +1,14 @@
+.homeRegistration{
+    float: right;
+    margin-top: 70px;
+    background: rgba(118, 116, 116, 0.55);
+    border-radius: 5px;
+    color: #fff;
+}
+.myStyle{
+    background-image: 
+"url('/static/media/home.a56633b88c04f808d5b9.jpg')";
+    height:'100vh';
+    background-size: 'cover';
+    background-repeat: 'no-repeat';
+};
