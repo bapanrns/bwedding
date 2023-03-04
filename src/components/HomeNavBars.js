@@ -73,6 +73,7 @@ import {
                                 <Navbar.Collapse id="basic-navbar-nav">
                                     <Nav>
                                         <a className="nav-link" href="#" onClick={openLoginModal} style={{paddingTop: 13}}>Log In</a>
+                                        <a className="nav-link" href="#" onClick={signUpModalOpen} style={{paddingTop: 13}}>Sign Up</a>
                                     </Nav>
                                 </Navbar.Collapse>
                             </Container>

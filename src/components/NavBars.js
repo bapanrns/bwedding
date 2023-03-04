@@ -1,4 +1,4 @@
-import React, {  useState } from 'react'
+import React from 'react'
 import {Container, Row } from 'react-bootstrap';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
@@ -8,8 +8,7 @@ import { useNavigate } from "react-router-dom";
 import './profile.css';
 
 import {
-    Link,
-    useLocation
+    Link
   } from "react-router-dom";
   const NavBars = () => {
 //export class NavBars extends Component {
