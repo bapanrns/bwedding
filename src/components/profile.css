@@ -71,7 +71,7 @@
 }
 
 @media only screen and (max-width: 870px) and (min-width: 200px)  {
-    .colmd6{
-        float: none;
+    .colmd6, .colmd5, .colmd1{
+        float: none !important;
     }
 }

@@ -55,6 +55,10 @@ const ProfileDetails = () => {
 
         return (
             <div>
+
+
+
+                
                 <Container className='container-class'>
                     <Row> 
                     <Modal className='imageModal' show={show} onHide={handleClose}>
@@ -143,6 +147,7 @@ const ProfileDetails = () => {
                                                 <Form.Label>Country<span className='requiredfield'> *</span></Form.Label>
                                                 <Select
                                                     className="basic-single"
+                                                    isMulti
                                                     classNamePrefix="select"
                                                     defaultValue={jsonData["country"][0]}
                                                     isDisabled={isDisabled}

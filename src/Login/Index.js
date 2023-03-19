@@ -1,10 +1,63 @@
-import React, { Component } from 'react'
-import ReactFormInputValidation from "react-form-input-validation";
+import React, { useEffect } from 'react'
+import { Lang, useFormInputValidation } from "react-form-input-validation";
 import { useNavigate } from "react-router-dom";
 
 
 //export class Index extends Component {
 const Index = (e) => {
+
+    /* Form Validation start */
+
+    const [fields, errors, form] = useFormInputValidation(
+        {
+         
+          email_address: "",
+          password: ""
+        },
+        {
+          email_address: "required|email",
+          password: "required"
+        }
+      );
+    
+      useEffect(() => {
+       /* form.registerAsync("username_available", function (
+          username,
+          attribute,
+          req,
+          passes
+        ) {
+          setTimeout(() => {
+            if (username === "foo")
+              passes(false, "Username has already been taken.");
+            // if username is not available
+            else passes();
+          }, 1000);
+        });*/
+      }, []);
+    
+      form.useLang(Lang.en);
+
+      const onSubmit = async (event) => {
+        const isValid = await form.validate(event);
+
+        if (isValid) {
+            loginUser()
+          console.log("MAKE AN API CALL", fields, errors);
+        }
+      };
+    
+      useEffect(() => {
+        /*if (form.isValidForm) {
+          console.log("MAKE AN API CALL ==> useEffect", fields, errors, form);
+        }*/
+      }, []);
+
+
+    /* Form Validation end */
+
+
+
     let myStyle = {
         display: "block",
         backgroundColor: "#cccc"
@@ -27,17 +80,24 @@ const Index = (e) => {
                         <button type="button" className="btn-close" aria-label="Close" onClick={e.modalHide}></button>
                     </div>
                     <div className="modal-body" style={{paddingBottom: 0}}>
-                        <form className="">
+                        <form 
+                            className="myForm"
+                            noValidate
+                            autoComplete="off"
+                            onSubmit={onSubmit}>
                             <div className="mb-3 formValidation">
                                 <label className="form-label" htmlFor="exampleForm.ControlInput1">Email address</label>
                                 <input 
                                     placeholder="name@example.com" 
                                     type="email" 
-                                    name='email'
+                                    name='email_address'
                                     id="exampleForm.ControlInput1" 
                                     className="form-control" 
+                                    onBlur={form.handleBlurEvent}
+                                    onChange={form.handleChangeEvent}
+                                    value={fields.email_address}
                                     />
-                                {/*this.state.errors.email ? <label className="error"> {this.state.errors.email} </label> : ""*/}
+                                {errors.email_address ? <label className="error"> {errors.email_address} </label> : ""}
                             </div>
                             <div className="mb-3 formValidation">
                                 <label className="form-label" htmlFor="exampleForm.ControlInput2">Password</label>
@@ -47,11 +107,14 @@ const Index = (e) => {
                                     name='password'
                                     id="exampleForm.ControlInput2" 
                                     className="form-control" 
+                                    onBlur={form.handleBlurEvent}
+                                    onChange={form.handleChangeEvent}
+                                    value={fields.password}
                                     />
-                                {/*this.state.errors.password ? <label className="error"> {this.state.errors.password} </label> : ""*/}
+                                {errors.password ? <label className="error"> {errors.password} </label> : ""}
                             </div>
                             <div className="mb-3">
-                                <button type="button" className="loginButton btn btn-primary" onClick={loginUser}>Login</button>
+                                <button type="submit" className="loginButton btn btn-primary">Login</button>
                             </div>
                             <div className="mb-3"> 
                                 <div className="forgotPassword" onClick={e.forgotPassword}>Forgot Password</div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import {Form } from 'react-bootstrap';
 import { Lang, useFormInputValidation } from "react-form-input-validation";
-import { withRouter  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 const SignUp = (e) => {
@@ -41,15 +41,19 @@ const SignUp = (e) => {
         });*/
       }, []);
     
-      form.useLang(Lang.en);
-
-      const onSubmit = async (event) => {
+        form.useLang(Lang.en);
+        const navigate = useNavigate();
+        const onSubmit = async (event) => {
         const isValid = await form.validate(event);
 
         if (isValid) {
-          console.log("MAKE AN API CALL", fields, errors);
+            console.log("MAKE AN API CALL", fields, errors);
+            localStorage.setItem("login", true);
+            navigate("/profiledetails/1");
+            e.modalHide();
+            window.location.reload(false);
         }
-      };
+    };
     
       useEffect(() => {
         /*if (form.isValidForm) {
@@ -145,7 +149,7 @@ const SignUp = (e) => {
                                 </select>
                             </div>
                             <div className="mb-3 formValidation">
-                                <label className="form-label" htmlFor="exampleForm.ControlInput1">Email address</label>
+                                <label className="form-label" htmlFor="exampleForm.ControlInput1">Email address<span className='requiredfield'> *</span></label>
                                 <input 
                                     placeholder="name@example.com" 
                                     type="email" 
@@ -160,7 +164,7 @@ const SignUp = (e) => {
                                     
                             </div>
                             <div className="mb-3 formValidation">
-                                <label className="form-label" htmlFor="exampleForm.ControlInput2">Password</label>
+                                <label className="form-label" htmlFor="exampleForm.ControlInput2">Password<span className='requiredfield'> *</span></label>
                                 <input 
                                     placeholder="********" 
                                     type="password" 
