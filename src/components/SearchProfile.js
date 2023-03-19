@@ -81,7 +81,7 @@ const SearchProfile = (e) => {
     /* Caste */
     const [CasteObj, setCaste] = useState(CastesData['Hindu']);
 
-    function getCaste(religionArray){
+    function getCaste(religionArray){ 
         if(religionArray.length > 0){
             religionArray.map((religion, index) =>{
                 console.log(CasteObj.length)
